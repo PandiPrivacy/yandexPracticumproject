@@ -1,7 +1,17 @@
 import data
 import sender_stand_request
 
-auth = "d07afdd2-c8e6-4473-b92d-8a51bdfae65f"
+
+# "d07afdd2-c8e6-4473-b92d-8a51bdfae65f"
+
+def create_new_user():
+    auth_token = sender_stand_request.get_new_user_token()
+    assert auth_token.status_code == 201
+    assert auth_token.json()["authToken"] != ""
+    return auth_token.json()["authToken"]
+
+
+auth = create_new_user()
 
 
 def negative_assert_code(response):
@@ -84,5 +94,3 @@ def test_other_type_numbers_11():
     kit_body = data.kit_body11
     response = sender_stand_request.post_new_client_kit(kit_body, auth)
     negative_assert_code(response)
-
-
