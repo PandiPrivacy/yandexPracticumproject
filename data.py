@@ -4,6 +4,10 @@ user_body = {
     "address": "г. Москва, ул. Пушкина, д. 10"
 }
 
+kit_body =  {
+    "name": "Имя"
+}
+
 kit_body1 = {
     "name": "a"
 }
